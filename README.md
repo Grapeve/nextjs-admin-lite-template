@@ -10,6 +10,10 @@ It is a <b>Nextjs</b> Admin Lite Template. Maybe this is not a real template. I 
 
 - typescript
 
+## Online
+
+https://nextjs-admin-lite-template.vercel.app
+
 ## Usage
 
 ```
