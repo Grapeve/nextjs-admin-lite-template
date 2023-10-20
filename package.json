@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@ant-design/icons": "^5.2.6",
     "@types/nprogress": "^0.2.2",
     "antd": "^5.10.1",
     "clsx": "^2.0.0",
