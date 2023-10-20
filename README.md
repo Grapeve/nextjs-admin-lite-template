@@ -2,6 +2,8 @@
 
 It is a <b>Nextjs</b> Admin Lite Template. Maybe this is not a real template. I provide a generic layout. All you need to do is configure the page and then concentrate on writing your code.
 
+！！！ Now it's just a small sample, and there are still many features that haven't been added. I will add them as soon as possible. If you think there's anything you need, you can let me know.
+
 ## Feature
 
 - nextjs 13: The React Framework for the Web.
