@@ -10,6 +10,14 @@ It is a <b>Nextjs</b> Admin Lite Template. Maybe this is not a real template. I 
 
 - typescript
 
-## Online
-
 ## Usage
+
+```
+git clone https://github.com/Grapeve/nextjs-admin-lite-template.git
+
+cd nextjs-admin-lite-template
+
+pnpm i
+
+pnpm dev
+```
