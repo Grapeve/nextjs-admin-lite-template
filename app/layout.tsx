@@ -5,7 +5,7 @@ import "./globals.css";
 import StyledComponentsRegistry from "@/lib/AntdRegistry";
 import { HandleOnComplete } from "@/lib/router-events";
 
-const font = Open_Sans({ subsets: ["latin"] });
+// const font = Open_Sans({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Nextjs Admin",
@@ -19,7 +19,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={font.className} suppressHydrationWarning={true}>
+      <body className={""} suppressHydrationWarning={true}>
         <HandleOnComplete />
         <StyledComponentsRegistry>{children}</StyledComponentsRegistry>
       </body>
