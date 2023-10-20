@@ -2,26 +2,63 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+html,
+body,
+:root {
+  height: 100%;
+}
+
+.ant-menu {
+  border: 0 !important;
+}
+
+.ant-menu-item {
+  margin-left: 0px !important;
+}
+
+/* 滚动条样式 */
+@layer utilities {
+  .scrollbar::-webkit-scrollbar {
+    width: 7px;
+    /* height: 20px; */
+  }
+
+  .scrollbar::-webkit-scrollbar-track {
+    border-radius: 100vh;
+    background: #f7f4ed;
+  }
+
+  .scrollbar::-webkit-scrollbar-thumb {
+    background: #c6a7fe;
+    border-radius: 100vh;
+    border: 2px solid #f6f7ed;
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+#nprogress: {
+  pointerevents: "none";
+}
+
+#nprogress .bar {
+  left: 0;
+  top: 0;
+  height: 2px;
+  width: 100%;
+  z-index: 2000;
+  position: fixed;
+  background-color: #c6a7fe;
+}
+
+#nprogress .spinner {
+  display: none;
+  position: fixed;
+  z-index: 1031;
+  top: 15px;
+  right: 15px;
 }
