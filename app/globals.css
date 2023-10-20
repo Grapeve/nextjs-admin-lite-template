@@ -41,7 +41,7 @@ body,
   }
 }
 
-#nprogress: {
+#nprogress {
   pointerevents: "none";
 }
 
