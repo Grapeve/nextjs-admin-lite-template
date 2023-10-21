@@ -17,13 +17,13 @@ import { Menu, ConfigProvider, Divider } from "antd";
 
 type MenuItem = Required<MenuProps>["items"][number];
 
-function getItem(
+const getItem = (
   label: React.ReactNode,
   key: React.Key,
   icon?: React.ReactNode,
   children?: MenuItem[],
   type?: "group"
-): MenuItem {
+): MenuItem => {
   return {
     key,
     icon,
@@ -31,7 +31,21 @@ function getItem(
     label,
     type,
   } as MenuItem;
-}
+};
+
+/**
+ * @description Sidebar Navigation Configuration, These are what you want to see in the sidebar.
+ */
+const items: MenuProps["items"] = [
+  getItem("个人页", "/profile", <UserOutlined />),
+  getItem("表单页", "/form-page", <FormOutlined />, [
+    getItem("基础表单", "/basic-form-page"),
+    getItem("分布表单", "/step-form-page", null, [
+      getItem("分布一", "/one"),
+      getItem("分布二", "/two"),
+    ]),
+  ]),
+];
 
 const SiderPage = () => {
   const router = useRouter();
@@ -47,14 +61,6 @@ const SiderPage = () => {
       onStart();
     }
   };
-
-  const items: MenuProps["items"] = [
-    getItem("个人页", "/profile", <UserOutlined />),
-    getItem("表单页", "/form-page", <FormOutlined />, [
-      getItem("基础表单", "/basic-form-page"),
-      getItem("分布表单", "/step-form-page"),
-    ]),
-  ];
 
   return (
     <div
