@@ -86,8 +86,8 @@ const SiderPage = () => {
           inlineCollapsed={isCollapsed}
         />
       </ConfigProvider>
-      <div className=" mt-auto">
-        <div className="mb-[5px] relative hidden md:block">
+      <div className="mt-auto">
+        <div className="mb-[60px] relative hidden md:block">
           <ConfigProvider
             theme={{
               components: {
