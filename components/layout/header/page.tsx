@@ -47,24 +47,20 @@ const HeaderPage: React.FC = () => {
 
   return (
     <div className="h-full flex items-center">
-      <div className="text-white text-lg ml-4">
+      <div className="flex text-white text-lg ml-4">
         <div className="flex items-center">
           <span className="text-[28px] pr-2">🍞</span>
-          <span className="hidden md:block">Nextjs-Admin-Lite-Template</span>
-          <div className="md:hidden -ml-[15px]">
-            {isCollapsed ? (
-              <MenuUnfoldOutlined
-                onClick={onClose}
-                className="text-lg ml-[18px]"
-              />
-            ) : (
-              <MenuFoldOutlined
-                onClick={onOpen}
-                className="text-lg ml-[18px]"
-              />
-            )}
-          </div>
+          <span className="hidden md:block transition-all">
+            Nextjs-Admin-Lite-Template
+          </span>
         </div>
+      </div>
+      <div className="block md:hidden text-white">
+        {isCollapsed ? (
+          <MenuUnfoldOutlined onClick={onClose} />
+        ) : (
+          <MenuFoldOutlined onClick={onOpen} />
+        )}
       </div>
       <div className="ml-auto mr-5 text-white">
         <Dropdown

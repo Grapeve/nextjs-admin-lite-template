@@ -15,7 +15,7 @@ const MainLayout = ({ children }: { children: React.ReactNode }) => {
         <HeaderPage />
       </div>
       <div className="flex min-h-full">
-        <div className="fixed pt-[50px] h-full shadow-md">
+        <div className="fixed top-[50px] h-full shadow-md">
           <SiderPage />
         </div>
         <main
