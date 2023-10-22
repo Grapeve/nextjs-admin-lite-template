@@ -1,5 +1,7 @@
 "use client";
 
+import "./breadcrumb.css";
+
 import { usePathname } from "next/navigation";
 
 import { MenuItem, items } from "@/components/layout/siderbar/page";
@@ -33,7 +35,7 @@ const NavBreadcrumb = () => {
   const labels = getPathLabels(items, pathname);
 
   return (
-    <div className="ml-2 cursor-pointer">
+    <div className="custom-breadcrumb ml-2 cursor-pointer">
       <Breadcrumb items={labels} />
     </div>
   );
