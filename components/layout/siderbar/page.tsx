@@ -84,6 +84,8 @@ const SiderPage = () => {
               subMenuItemBg: "#ffffff",
               itemMarginInline: 0,
               itemMarginBlock: 0,
+              itemSelectedColor: "#5248e5",
+              itemSelectedBg: "#eeedfc",
             },
           },
         }}
