@@ -11,6 +11,7 @@ import {
   UserOutlined,
   MenuFoldOutlined,
   MenuUnfoldOutlined,
+  TableOutlined,
 } from "@ant-design/icons";
 import type { MenuProps } from "antd";
 import { Menu, ConfigProvider, Divider } from "antd";
@@ -38,6 +39,7 @@ const getItem = (
  */
 const items: MenuProps["items"] = [
   getItem("个人页", "/profile", <UserOutlined />),
+  getItem("表单页", "/table", <TableOutlined />),
   getItem("表单页", "/form-page", <FormOutlined />, [
     getItem("基础表单", "/basic-form-page"),
     getItem(

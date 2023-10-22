@@ -12,7 +12,7 @@ const MainLayout = ({ children }: { children: React.ReactNode }) => {
 
   return (
     <>
-      <div className="h-[48px] fixed w-full bg-[#645ae7]">
+      <div className="h-[48px] fixed w-full bg-[#645ae7] z-10">
         <HeaderPage />
       </div>
       <div className="flex min-h-full">
@@ -21,11 +21,11 @@ const MainLayout = ({ children }: { children: React.ReactNode }) => {
         </div>
         <div
           className={cn(
-            "fixed w-full top-[48px] h-[40px] transition-all",
+            "fixed w-full top-[48px] h-[40px] transition-all z-10",
             isCollapsed ? "ml-[50px]" : "ml-[210px]"
           )}
         >
-          <div className="h-full flex items-center bg-[#f0f4f7] ">
+          <div className="h-full flex items-center bg-[#f0f4f7]">
             <NavBreadcrumb />
           </div>
         </div>
