@@ -47,7 +47,7 @@ const LoginPage = () => {
             autoComplete="off"
             style={{ minWidth: 330 }}
             onFinish={onSumbit}
-            initialValues={{ account: "", password: "" }}
+            initialValues={{ account: "admin", password: "123456" }}
           >
             <Form.Item<FieldType>
               label="account"
@@ -57,7 +57,7 @@ const LoginPage = () => {
               ]}
             >
               <Input
-                placeholder="Enter your account"
+                placeholder="Enter your account admin"
                 style={{
                   height: 48,
                 }}
@@ -71,7 +71,7 @@ const LoginPage = () => {
               ]}
             >
               <Input.Password
-                placeholder="Enter your password"
+                placeholder="Enter your password 123456"
                 style={{
                   height: 48,
                 }}
@@ -87,6 +87,7 @@ const LoginPage = () => {
                   fontWeight: 600,
                   height: 48,
                   borderRadius: 10,
+                  marginTop: 15,
                 }}
               >
                 Log In
