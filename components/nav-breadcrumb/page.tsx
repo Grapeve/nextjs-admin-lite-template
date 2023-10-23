@@ -4,7 +4,7 @@ import "./breadcrumb.css";
 
 import { usePathname } from "next/navigation";
 
-import { MenuItem, items } from "@/components/layout/siderbar/page";
+import { MenuItem, items } from "@/components/layout/sidebar/page";
 
 import { Breadcrumb } from "antd";
 

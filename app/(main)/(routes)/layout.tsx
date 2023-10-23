@@ -2,7 +2,7 @@
 
 import NavBreadcrumb from "@/components/nav-breadcrumb/page";
 import HeaderPage from "@/components/layout/header/page";
-import SiderPage from "@/components/layout/siderbar/page";
+import SiderPage from "@/components/layout/sidebar/page";
 
 import { useCollapse } from "@/hooks/use-collapse-store";
 import { cn } from "@/lib/utils";

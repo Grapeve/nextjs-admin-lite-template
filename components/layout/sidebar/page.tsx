@@ -39,7 +39,7 @@ const getItem = (
  */
 const items: MenuProps["items"] = [
   getItem("个人页", "/profile", <UserOutlined />),
-  getItem("表单页", "/table", <TableOutlined />),
+  getItem("表格页", "/table", <TableOutlined />),
   getItem("表单页", "/form-page", <FormOutlined />, [
     getItem("基础表单", "/basic-form-page"),
     getItem(

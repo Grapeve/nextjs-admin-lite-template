@@ -39,7 +39,7 @@ const columns: ColumnsType<DataType> = [
     dataIndex: "photo",
     key: "pokemon-photo",
     render: (photo) => (
-      <Image src={photo} alt="pokemon" fill className="object-cover" />
+      <img src={photo} alt="pokemon" className="object-cover" />
     ),
   },
 ];
