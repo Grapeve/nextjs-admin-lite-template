@@ -88,6 +88,7 @@ const LoginPage = () => {
                   height: 48,
                   borderRadius: 10,
                   marginTop: 15,
+                  backgroundColor: "#1677ff",
                 }}
               >
                 Log In
