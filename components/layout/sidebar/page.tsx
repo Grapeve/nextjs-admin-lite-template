@@ -5,6 +5,7 @@ import { usePathname, useRouter } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { onStart } from "@/lib/router-events/events";
 import { useCollapse } from "@/hooks/use-collapse-store";
+import { useThemeToken } from "@/hooks/use-theme-token";
 
 import {
   FormOutlined,
@@ -69,12 +70,18 @@ const SiderPage = () => {
     }
   };
 
+  const { colorTextBase, colorBgContainer } = useThemeToken();
+
   return (
     <div
       className={cn(
         "flex flex-col h-full overflow-y-auto scrollbar overflow-x-hidden transition-all",
         isCollapsed ? "w-[50px]" : "w-[210px]"
       )}
+      // style={{
+      //   color: colorTextBase,
+      //   backgroundColor: colorBgContainer,
+      // }}
     >
       <ConfigProvider
         theme={{
@@ -83,7 +90,7 @@ const SiderPage = () => {
               collapsedIconSize: 14,
               collapsedWidth: 50,
               itemBorderRadius: 0,
-              subMenuItemBg: "#ffffff",
+              // subMenuItemBg: "#ffffff",
               itemMarginInline: 0,
               itemMarginBlock: 0,
               // itemSelectedColor: "#5248e5",

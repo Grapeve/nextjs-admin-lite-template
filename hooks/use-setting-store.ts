@@ -1,11 +1,21 @@
 import { create } from "zustand";
 
-interface settingData {
+import { ThemeMode } from "@/types";
+
+type SettingType = {
   themeColor: string;
-  setSettings: (color: string) => void;
+  themeMode: ThemeMode;
+};
+
+interface settingData {
+  settings: SettingType;
+  setSettings: (settings: SettingType) => void;
 }
 
 export const useSettingStore = create<settingData>((set) => ({
-  themeColor: "#5248e5",
-  setSettings: (color) => set({ themeColor: color }),
+  settings: {
+    themeColor: "#5248e5",
+    themeMode: ThemeMode.Light,
+  },
+  setSettings: (settings) => set({ settings }),
 }));

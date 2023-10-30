@@ -1,20 +1,26 @@
 "use client";
 
+import Color from "color";
 import { useState } from "react";
 import { MdCircle } from "react-icons/md";
 
 import { SettingOutlined, CloseOutlined } from "@ant-design/icons";
 import { Drawer, Card } from "antd";
+import { MoonIcon, SunIcon } from "@radix-ui/react-icons";
 
 import { useThemeToken } from "@/hooks/use-theme-token";
 import { useSettingStore } from "@/hooks/use-setting-store";
 
+import { ThemeMode } from "@/types";
+
 const SettingButton = () => {
   const [open, setOpen] = useState(false);
 
-  const { colorTextSecondary } = useThemeToken();
+  const { colorTextSecondary, colorBgContainer, colorPrimary } =
+    useThemeToken();
 
-  const { themeColor, setSettings } = useSettingStore();
+  const { settings, setSettings } = useSettingStore();
+  const { themeColor } = settings;
 
   // 主题色
   const colorPrimarys = {
@@ -29,7 +35,7 @@ const SettingButton = () => {
   return (
     <>
       <div onClick={() => setOpen(true)}>
-        <SettingOutlined />
+        <SettingOutlined className="h-5 w-5" />
       </div>
       <Drawer
         title="Setting"
@@ -39,6 +45,12 @@ const SettingButton = () => {
         closable={false}
         width={280}
         maskStyle={{ backgroundColor: "transparent" }}
+        style={{
+          backdropFilter: "blur(1px)",
+          backgroundColor: Color(colorBgContainer).alpha(0.9).toString(),
+          backgroundPosition: "right top, left bottom",
+          backgroundSize: "50, 50%",
+        }}
         extra={
           <button
             onClick={() => setOpen(false)}
@@ -49,6 +61,45 @@ const SettingButton = () => {
           </button>
         }
       >
+        {/* theme mode */}
+        <div className="pb-6">
+          <div
+            className="mb-3 text-xs font-semibold"
+            style={{ color: colorTextSecondary }}
+          >
+            Mode
+          </div>
+          <div className="flex flex-row gap-4">
+            <Card
+              className="flex h-20 w-full cursor-pointer items-center justify-center"
+              onClick={() =>
+                setSettings({ ...settings, themeMode: ThemeMode.Light })
+              }
+            >
+              <SunIcon
+                className={"h-6 w-6"}
+                style={{
+                  color:
+                    settings.themeMode === ThemeMode.Light ? colorPrimary : "",
+                }}
+              />
+            </Card>
+            <Card
+              className="flex h-20 w-full cursor-pointer items-center justify-center"
+              onClick={() =>
+                setSettings({ ...settings, themeMode: ThemeMode.Dark })
+              }
+            >
+              <MoonIcon
+                className={"h-6 w-6"}
+                style={{
+                  color:
+                    settings.themeMode === ThemeMode.Dark ? colorPrimary : "",
+                }}
+              />
+            </Card>
+          </div>
+        </div>
         {/* theme color */}
         <div>
           <div
@@ -65,7 +116,7 @@ const SettingButton = () => {
                 style={{
                   backgroundColor: themeColor === color ? `${color}14` : "",
                 }}
-                onClick={() => setSettings(color)}
+                onClick={() => setSettings({ ...settings, themeColor: color })}
               >
                 <div style={{ color }}>
                   <MdCircle
