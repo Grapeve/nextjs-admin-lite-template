@@ -69,7 +69,7 @@ const columns: ColumnsType<DataType> = [
 ];
 
 const ApiTable = ({ dataSource }: ApiTableProps) => {
-  return <Table dataSource={dataSource} columns={columns} />;
+  return <Table dataSource={dataSource} columns={columns} scroll={{ x: 0 }} />;
 };
 
 export default ApiTable;

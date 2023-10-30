@@ -89,7 +89,7 @@ const MainLayout = ({ children }: { children: React.ReactNode }) => {
       <div className="flex min-h-full ">
         <div
           className={cn(
-            "fixed top-[48px] h-full shadow-md border-r  border-zinc-200 z-10",
+            "fixed top-[48px] h-full shadow-md border-r bg-white border-zinc-200 z-10",
             settings.themeMode === ThemeMode.Dark &&
               "bg-[#212b36] text-[#ffffff]"
           )}
@@ -116,9 +116,8 @@ const MainLayout = ({ children }: { children: React.ReactNode }) => {
           className={cn(
             "w-full transition-all min-h-[100vh] bg-[#f0f4f7] p-2 pt-[98px] ",
             isCollapsed ? "ml-[50px]" : "ml-[210px]",
-            settings.themeMode === ThemeMode.Dark
-              ? "bg-[#161c24] text-[#ffffff]"
-              : ""
+            settings.themeMode === ThemeMode.Dark &&
+              "bg-[#161c24] text-[#ffffff]"
           )}
         >
           {children}
