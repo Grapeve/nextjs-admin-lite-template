@@ -12,6 +12,8 @@ import {
 import type { MenuProps } from "antd";
 import { Avatar, Dropdown } from "antd";
 
+import SettingButton from "./setting-button";
+
 const items: MenuProps["items"] = [
   {
     key: "/profile",
@@ -62,7 +64,10 @@ const HeaderPage: React.FC = () => {
           <MenuFoldOutlined onClick={onOpen} />
         )}
       </div>
-      <div className="ml-auto mr-5 text-white">
+      <div className="ml-auto mr-5 text-white flex">
+        <div className="flex items-center mr-2 text-2xl animate-spin-slow cursor-pointer">
+          <SettingButton />
+        </div>
         <Dropdown
           menu={{ items, onClick }}
           className="h-[48px] flex items-center"
