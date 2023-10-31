@@ -3,10 +3,12 @@
 import Color from "color";
 import { useState } from "react";
 import { MdCircle } from "react-icons/md";
+import Image from "next/image";
 
 import { Drawer, Card } from "antd";
-import { SettingOutlined, CloseOutlined } from "@ant-design/icons";
+import { CloseOutlined } from "@ant-design/icons";
 import { MoonIcon, SunIcon } from "@radix-ui/react-icons";
+import SettingIcon from "@/public/svgs/setting.svg";
 
 import { useThemeToken } from "@/theme/use-theme-token";
 import { useSettingStore } from "@/hooks/use-setting-store";
@@ -26,7 +28,8 @@ const SettingButton = () => {
   return (
     <>
       <div onClick={() => setOpen(true)}>
-        <SettingOutlined className="h-5 w-5" />
+        {/* <SettingOutlined className="h-5 w-5" /> */}
+        <Image src={SettingIcon} alt="" width={32} height={32} />
       </div>
       <Drawer
         title="Setting"
