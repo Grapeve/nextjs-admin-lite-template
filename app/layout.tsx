@@ -4,6 +4,7 @@ import "./globals.css";
 
 import StyledComponentsRegistry from "@/lib/AntdRegistry";
 import { HandleOnComplete } from "@/lib/router-events";
+import ThemeProvider from "@/theme/theme-provider";
 
 // const font = Open_Sans({ subsets: ["latin"] });
 
@@ -21,7 +22,9 @@ export default function RootLayout({
     <html lang="en">
       <body className={""} suppressHydrationWarning={true}>
         <HandleOnComplete />
-        <StyledComponentsRegistry>{children}</StyledComponentsRegistry>
+        <ThemeProvider>
+          <StyledComponentsRegistry>{children}</StyledComponentsRegistry>
+        </ThemeProvider>
       </body>
     </html>
   );

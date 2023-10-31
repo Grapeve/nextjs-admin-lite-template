@@ -75,7 +75,7 @@ const data: DataType[] = [
 ];
 
 const SimpleTable = () => {
-  return <Table columns={columns} dataSource={data} />;
+  return <Table columns={columns} dataSource={data} scroll={{ x: 0 }} />;
 };
 
 export default SimpleTable;

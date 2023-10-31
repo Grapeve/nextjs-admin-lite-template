@@ -4,12 +4,13 @@ import Color from "color";
 import { useState } from "react";
 import { MdCircle } from "react-icons/md";
 
-import { SettingOutlined, CloseOutlined } from "@ant-design/icons";
 import { Drawer, Card } from "antd";
+import { SettingOutlined, CloseOutlined } from "@ant-design/icons";
 import { MoonIcon, SunIcon } from "@radix-ui/react-icons";
 
-import { useThemeToken } from "@/hooks/use-theme-token";
+import { useThemeToken } from "@/theme/use-theme-token";
 import { useSettingStore } from "@/hooks/use-setting-store";
+import { colorPrimarys } from "@/theme/antd/theme";
 
 import { ThemeMode } from "@/types";
 
@@ -21,16 +22,6 @@ const SettingButton = () => {
 
   const { settings, setSettings } = useSettingStore();
   const { themeColor } = settings;
-
-  // 主题色
-  const colorPrimarys = {
-    default: "#00a76f",
-    cyan: "#078DEE",
-    purple: "#7635DC",
-    blue: "#5248e5",
-    orange: "#FDA92D",
-    red: "#FF3030",
-  };
 
   return (
     <>

@@ -1,6 +1,8 @@
 import { create } from "zustand";
+import { persist } from "zustand/middleware";
 
-import { ThemeMode } from "@/types";
+import { StorageEnum, ThemeMode } from "@/types";
+import { getItem, setItem } from "@/lib/utils";
 
 type SettingType = {
   themeColor: string;
@@ -17,5 +19,8 @@ export const useSettingStore = create<settingData>((set) => ({
     themeColor: "#5248e5",
     themeMode: ThemeMode.Light,
   },
-  setSettings: (settings) => set({ settings }),
+  setSettings: (settings) => {
+    set({ settings });
+    setItem(StorageEnum.Settings, settings);
+  },
 }));

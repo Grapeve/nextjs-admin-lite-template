@@ -4,6 +4,10 @@ import { useRouter } from "next/navigation";
 import { Button, Form, Input, ConfigProvider, Divider } from "antd";
 
 import { onStart } from "@/lib/router-events/events";
+import { useSettingStore } from "@/hooks/use-setting-store";
+import { useThemeToken } from "@/theme/use-theme-token";
+
+import { ThemeMode } from "@/types";
 
 type FieldType = {
   account?: string;
@@ -11,6 +15,9 @@ type FieldType = {
 };
 
 const LoginPage = () => {
+  const { settings } = useSettingStore();
+  const { colorBgContainer, colorBgElevated } = useThemeToken();
+
   const router = useRouter();
 
   const onSumbit = (values: FieldType) => {
@@ -24,19 +31,39 @@ const LoginPage = () => {
       theme={{
         components: {
           Form: {
-            labelColor: "#0069ff",
+            labelColor: settings.themeColor,
             labelFontSize: 16,
             itemMarginBottom: 21,
           },
         },
       }}
     >
-      <div className="flex h-full justify-center items-center bg-[rgb(243,245,249)]">
+      <div
+        className="flex h-full justify-center items-center bg-[rgb(243,245,249)]"
+        style={{
+          color: settings.themeMode === ThemeMode.Dark ? "#ffffff" : "",
+          backgroundColor:
+            settings.themeMode === ThemeMode.Dark ? colorBgElevated : "",
+        }}
+      >
         <div
           className="bg-white w-[360px] md:min-w-[360px] flex flex-col items-center
           border-solid shadow rounded-[24px]"
+          style={{
+            color: settings.themeMode === ThemeMode.Dark ? "#ffffff" : "",
+            backgroundColor:
+              settings.themeMode === ThemeMode.Dark ? colorBgContainer : "",
+          }}
         >
-          <span className="text-[32px] text-[#031b4e] font-[700] tracking-tighter mt-5 mb-3">
+          <span
+            className="text-[32px] text-[#031b4e] font-[700] tracking-tighter mt-5 mb-3"
+            style={{
+              color:
+                settings.themeMode === ThemeMode.Dark
+                  ? settings.themeColor
+                  : "",
+            }}
+          >
             🍞 Nextjs-Admin
           </span>
           {/* <span className="text-[32px] text-[#031b4e] font-[700] tracking-tighter space-y-2">
@@ -88,7 +115,7 @@ const LoginPage = () => {
                   height: 48,
                   borderRadius: 10,
                   marginTop: 15,
-                  backgroundColor: "#1677ff",
+                  backgroundColor: settings.themeColor,
                 }}
               >
                 Log In
