@@ -78,6 +78,9 @@ const SiderPage = () => {
     >
       <ConfigProvider
         theme={{
+          token: {
+            motion: false,
+          },
           components: {
             Menu: {
               collapsedIconSize: 14,

@@ -24,9 +24,7 @@ const MainLayout = ({ children }: { children: React.ReactNode }) => {
       </div>
       <div className="flex min-h-full ">
         <div
-          className={cn(
-            "fixed top-[48px] h-full shadow-md border-r bg-white border-zinc-200 z-10"
-          )}
+          className="fixed top-[48px] h-full shadow-md border-r bg-white border-zinc-200 z-10"
           style={{
             color: settings.themeMode === ThemeMode.Dark ? "#ffffff" : "",
             backgroundColor:
@@ -37,12 +35,12 @@ const MainLayout = ({ children }: { children: React.ReactNode }) => {
         </div>
         <div
           className={cn(
-            "fixed w-full top-[48px] h-[40px] transition-all z-10",
+            "fixed w-full top-[48px] h-[40px] z-10 transition-all",
             isCollapsed ? "ml-[50px]" : "ml-[210px]"
           )}
         >
           <div
-            className={cn("h-full flex items-center bg-[#f0f4f7]")}
+            className="h-full flex items-center bg-[#f0f4f7]"
             style={{
               color: settings.themeMode === ThemeMode.Dark ? "#ffffff" : "",
               backgroundColor:
@@ -54,7 +52,7 @@ const MainLayout = ({ children }: { children: React.ReactNode }) => {
         </div>
         <main
           className={cn(
-            "w-full transition-all min-h-[100vh] bg-[#f0f4f7] p-2 pt-[98px] ",
+            "w-full min-h-[100vh] bg-[#f0f4f7] p-2 pt-[98px] transition-spacing",
             isCollapsed ? "ml-[50px]" : "ml-[210px]"
           )}
           style={{

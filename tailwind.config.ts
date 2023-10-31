@@ -9,6 +9,10 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      transitionProperty: {
+        width: "width",
+        spacing: "margin, padding",
+      },
       animation: {
         "spin-slow": "spin 4.5s linear infinite",
       },

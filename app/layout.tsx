@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Open_Sans } from "next/font/google";
 import "./globals.css";
 
-import StyledComponentsRegistry from "@/lib/AntdRegistry";
+import StyledComponentsRegistry from "@/theme/AntdRegistry";
 import { HandleOnComplete } from "@/lib/router-events";
 import ThemeProvider from "@/theme/theme-provider";
 
