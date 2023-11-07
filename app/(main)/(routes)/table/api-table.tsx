@@ -63,13 +63,22 @@ const columns: ColumnsType<DataType> = [
     dataIndex: "photo",
     key: "pokemon-photo",
     render: (photo) => (
-      <Image src={photo} alt="pokemon" className="object-cover" width={96} />
+      <div className="w-[96px] h-[96px]">
+        <Image src={photo} alt="pokemon" className="object-cover" width={96} />
+      </div>
     ),
   },
 ];
 
 const ApiTable = ({ dataSource }: ApiTableProps) => {
-  return <Table dataSource={dataSource} columns={columns} scroll={{ x: 0 }} />;
+  return (
+    <Table
+      bordered={true}
+      dataSource={dataSource}
+      columns={columns}
+      scroll={{ x: 0 }}
+    />
+  );
 };
 
 export default ApiTable;

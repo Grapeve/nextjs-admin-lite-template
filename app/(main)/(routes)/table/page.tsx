@@ -1,3 +1,5 @@
+import { ConfigProvider } from "antd";
+
 import { getPokemons, getPokemonsById } from "@/app/api/pokemons";
 
 import SimpleTable from "./simple-table";
@@ -43,7 +45,13 @@ const TablePage = async () => {
   );
 
   return (
-    <>
+    <ConfigProvider
+      theme={{
+        token: {
+          motion: false,
+        },
+      }}
+    >
       <div>
         <span className="ml-1 mb-1">simple table</span>
         <SimpleTable />
@@ -52,7 +60,7 @@ const TablePage = async () => {
         <span className="ml-1 mb-1">api table</span>
         <ApiTable dataSource={pokemonsTable} />
       </div>
-    </>
+    </ConfigProvider>
   );
 };
 

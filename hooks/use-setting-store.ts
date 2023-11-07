@@ -1,5 +1,6 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
+import Cookies from "js-cookie";
 
 import { StorageEnum, ThemeMode } from "@/types";
 import { getItem, setItem } from "@/lib/utils";
@@ -22,5 +23,6 @@ export const useSettingStore = create<settingData>((set) => ({
   setSettings: (settings) => {
     set({ settings });
     setItem(StorageEnum.Settings, settings);
+    Cookies.set(StorageEnum.Settings, JSON.stringify(settings), { expires: 7 });
   },
 }));
