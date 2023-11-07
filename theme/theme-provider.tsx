@@ -13,18 +13,7 @@ import { getItem } from "@/lib/utils";
 
 import { StorageEnum, ThemeMode } from "@/types";
 
-const ThemeProvider = ({
-  children,
-  themeSettings,
-}: {
-  children: React.ReactNode;
-  themeSettings:
-    | {
-        themeColor: string;
-        themeMode: string;
-      }
-    | undefined;
-}) => {
+const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
   const { settings, setSettings } = useSettingStore();
   const { themeMode, themeColor } = settings;
 
