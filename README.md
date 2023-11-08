@@ -14,7 +14,7 @@ It is a <b>Nextjs</b> Admin Lite Template. Maybe this is not a real template. I 
 
 - 🌊 [tailwind css](https://tailwindcss.com/): A utility-first CSS framework for rapidly building custom user interfaces.
 
-## Online
+## Online Preview
 
 https://nextjs-admin-lite-template.vercel.app
 
@@ -24,30 +24,47 @@ https://nextjs-admin-lite-template.vercel.app
 
 Configure the sidebar navigation what you want to see directly.
 
-Configure location: <b>/components/layouts/sidebar/page.tsx</b>, line 39.
+Configure location: <b>/components/layouts/sidebar/page.tsx</b>, line 40.
 
-More information: https://ant.design/components/menu.
+More information about meun component: https://ant.design/components/menu.
+
+`<UserOutlined />` is an icon component. More Icon: https://ant-design.antgroup.com/components/icon
 
 ```typescript
 const items: MenuProps["items"] = [
-  getItem("个人页", "/profile", <UserOutlined />),
-  getItem("表单页", "/form-page", <FormOutlined />, [
-    getItem("基础表单", "/basic-form-page"),
-    getItem("分布表单", "/step-form-page"),
+  getItem("Profile", "/profile", <UserOutlined />),
+  getItem("Form", "/form-page", <FormOutlined />, [
+    getItem("BasicForm", "/basic-form-page"),
+    getItem("StepForm", "/step-form-page"),
   ]),
 ];
+```
+
+Then you should create pages when you haved configured the sidebar navigation. This project uses <b>app router</b> mode. More information about app router: https://nextjs.org/docs/app/building-your-application/routing#the-app-router.
+
+```
+app
+|—(main)
+  |—(routes)
+    |—profile
+      |—page.tsx
+    |—form-page
+      |—basic-form-page
+        |—page.tsx
+      |—step-form-page
+        |—page.tsx
 ```
 
 Configure the three-level navigation. If the third parameter icon is not present, set it to null.
 
 ```typescript
 const items: MenuProps["items"] = [
-  getItem("个人页", "/profile", <UserOutlined />),
-  getItem("表单页", "/form-page", <FormOutlined />, [
-    getItem("基础表单", "/basic-form-page"),
-    getItem("分布表单", "/step-form-page", null, [
-      getItem("分布一", "/one"),
-      getItem("分布二", "/two"),
+  getItem("Prfoile", "/profile", <UserOutlined />),
+  getItem("Form", "/form-page", <FormOutlined />, [
+    getItem("BasicForm", "/basic-form-page"),
+    getItem("StepForm", "/step-form-page", null, [
+      getItem("StepOne", "/one"),
+      getItem("StepTwo", "/two"),
     ]),
   ]),
 ];
@@ -66,12 +83,43 @@ But this will cause a problem, if you use tailwind css in the className of the A
 </div>
 ```
 
-- You can create a new css file in the same directory as page.tsx and import it, or write it in /app/globals.css.
+- Then you can create a new css file in the same directory as page.tsx and import it in page.tsx, or write it in /app/globals.css.
 
 ```css
 .custom-breadcrumb > .ant-breadcrumb {
   color: #c6a7fe;
 }
+```
+
+### 3. Dark mode
+
+The configuration related to the antd theme is located at `/theme/antd/theme.ts`. More information: https://ant-design.antgroup.com/docs/react/customize-theme.
+
+If you are using antd component, when you switch to dark mode, it will automatically switch to dark state. If it is a custom component, you need to add dark state manually. For example:
+
+```ts
+// 1:
+import { useSettingStore } from "@/hooks/use-setting-store";
+import { useThemeToken } from "@/theme/use-theme-token";
+import { ThemeMode } from "@/types";
+
+// 2:
+const { settings } = useSettingStore();
+const { themeMode } = settings();
+const { colorBgContainer, colorBgElevated } = useThemeToken();
+// colorBgContainer: antd container background color "#212b36"
+// colorBgElevated: antd elevated container background color "#161c24"
+// You can customize dark color you want at /theme/antd/theme.ts
+
+// 3:
+<div
+  style={{
+    color: themeMode === ThemeMode.Dark ? "#ffffff" : "",
+    backgroundColor: themeMode === ThemeMode.Dark ? colorBgElevated : "",
+  }}
+>
+  xxx
+</div>;
 ```
 
 ## Getting Started
