@@ -19,6 +19,7 @@ interface DataType {
 
 interface ApiTableProps {
   dataSource: DataType[];
+  isLoading: boolean;
 }
 
 const columns: ColumnsType<DataType> = [
@@ -70,9 +71,10 @@ const columns: ColumnsType<DataType> = [
   },
 ];
 
-const ApiTable = ({ dataSource }: ApiTableProps) => {
+const ApiTable = ({ dataSource, isLoading }: ApiTableProps) => {
   return (
     <Table
+      loading={isLoading}
       bordered={true}
       dataSource={dataSource}
       columns={columns}
